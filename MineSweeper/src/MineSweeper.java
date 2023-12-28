@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Random;
 
-public class MineSweeper {
+public class MineSweeper { // Classı oluşturuyoruz. // Değerlendirme Formu 5
     Scanner input = new Scanner(System.in);
     int rowNumber;
     int colNumber;
@@ -43,7 +43,7 @@ public class MineSweeper {
     // Kullanıcının girdiği değerleri 2x2'nin altındaysa tekrar veri girilmesini isteyen metot.
     void mineSweeperSizeCheck() {
         do {
-            System.out.print("Please Enter a Row Number : ");
+            System.out.print("Please Enter a Row Number : ");             // Değerlendirme Formu 7
             this.rowNumber = input.nextInt();
             System.out.print("Please Enter a Columb Number : ");
             this.colNumber = input.nextInt();
@@ -79,7 +79,7 @@ public class MineSweeper {
             if (this.firstMap[randomIndexRow][randomIndexCol] == "-") {
                 this.numberOfMine--;
             }
-            this.firstMap[randomIndexRow][randomIndexCol] = "*";
+            this.firstMap[randomIndexRow][randomIndexCol] = "*";                // Değerlendirme Formu 8
         }
         showMatris(this.firstMap);
 
@@ -116,9 +116,9 @@ public class MineSweeper {
             }
         }
         String mineNumber = String.valueOf(counter);
-        this.gameMap[row][col] = mineNumber;
+        this.gameMap[row][col] = mineNumber;        // Değerlendirme Formu 12
         this.firstMap[row][col] = mineNumber;
-        showMatris(this.gameMap);
+        showMatris(this.gameMap);       // Değerlendirme Formu 11
 
     }
 
@@ -132,7 +132,7 @@ public class MineSweeper {
                 }
             }
         }
-        System.out.println("Congratulations you won. All mines have been cleared");
+        System.out.println("Congratulations you won. All mines have been cleared");   // Değerlendirme Formu 15
         return true;
     }
     /*
@@ -143,24 +143,24 @@ public class MineSweeper {
 
         int maxChoicesNumber = (this.colNumber * this.rowNumber) - this.numberOfMine;
         while (maxChoicesNumber != 1) {
-            System.out.println("======================");
+            System.out.println("======================");                           // Değerlendirme Formu 9
             System.out.print("Please enter a row number : ");
             this.row = input.nextInt();
             System.out.print("Please enter a column number : ");
             this.col = input.nextInt();
 
-            if (this.row < 0 || this.col < 0 || this.col >= this.colNumber || this.row >= this.rowNumber) {
+            if (this.row < 0 || this.col < 0 || this.col >= this.colNumber || this.row >= this.rowNumber) {  // Değerlendirme Formu 10
                 System.out.println("Invalid Location. Try again.");
                 maxChoicesNumber++;
                 continue;
             } else if (this.firstMap[row][col].equals("*")) {
-                System.out.println("GAME OVER !");
+                System.out.println("GAME OVER !");      // Değerlendirme Formu 13        // Değerlendirme Formu 15
                 break;
             } else if(this.firstMap[row][col] != "-"){
                 System.out.println("This location has been entered before, enter another location.");
                 maxChoicesNumber++;
             } else {
-                control();
+                control();                      // Değerlendirme Formu 14
                 if (finishGame()) {
                     break;
                 }
